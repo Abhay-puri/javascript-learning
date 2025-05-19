@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>voice generator</title>
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: linear-gradient(45deg, #010758, #490d61);
+    
+  }
+
+  .voice {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .voice h1 {
+    font-size: 45px;
+    font-weight: 500;
+  }
+
+  .voice h1 span {
+    color: #ff2963;
+  }
+
+  textarea {
+    width: 600px;
+    height: 250px;
+    background: #403d84;
+    color: #fff;
+    font-size: 15px;
+    border: 0;
+    outline: 0;
+    padding: 20px;
+    border-radius: 10px;
+    margin:20px 0 30px 0;
+
+
+  }
+
+  button {
+    background: #ff2963;
+    color: fff;
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 35px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  textarea::placeholder {
+    font-size: 16px;
+    color: #ddd;
+  }
+</style>
+
+<body>
+  <div class="voice">
+    <h1>Text To Speech<span> Converter</span></h1>
+    <div class="area">
+      <textarea placeholder="Write anything here..."></textarea>
+      <button id="btn">Listen</button>
+    </div>
+
+  </div>
+  <script>
+    var speech = new SpeechSynthesisUtterance();
+    document.querySelector("#btn").addEventListener("click", () => {
+      // console.log(hello);
+
+      speech.text = document.querySelector("textarea").value;
+      window.speechSynthesis.speak(speech);
+
+    })
+  </script>
+</body>
+
+</html>
